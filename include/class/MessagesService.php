@@ -13,7 +13,7 @@ class MessagesService {
 	 */
 	static function afficher() {
 		if(isset($_SESSION['MessagesService']))
-		{
+		{			
 			while(count($_SESSION['MessagesService']))
 			{
 				$message=array_shift($_SESSION['MessagesService']);
@@ -28,6 +28,7 @@ class MessagesService {
 	static function ajouter($type, $message) {
 		$_SESSION['MessagesService'][]=array('type' => $type, 'message' => $message);
 	}
-	
-	
 }
+
+
+

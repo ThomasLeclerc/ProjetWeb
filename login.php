@@ -8,7 +8,6 @@ if(isset($_POST['login'],$_POST['password']))
                         FROM UTILISATEUR
                         WHERE UTILISATEUR.loginUtilisateur='".$_POST['login']."'
                         AND password='".hash("sha1",$_POST['password'])."'   ");
-	
 	if($requete->num_rows == 1)
 	{
 		// Compte autorisé
@@ -24,7 +23,6 @@ if(isset($_POST['login'],$_POST['password']))
 		}
 		
 		MessagesService::ajouter(MessagesService::OK, "Bienvenue ".$compte->prenomUtilisateur." ".$compte->nomUtilisateur);
-		
 		REDIRECT('index.php');
 	}
 	else

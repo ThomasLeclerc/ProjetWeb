@@ -219,7 +219,7 @@ if(!defined('NO_SQL'))
 
 		// Affiche la requête en mode débugage
 		if(DEVELOPPEMENT && SQL_AFFICHER_REQUETES)
-			echo '<b>Requête:</b> '.$Requete.'<br/>';
+			//echo '<b>Requête:</b> '.$Requete.'<br/>';
 
 		// Envoi de la requête au serveur
 		$Resultat = $Mysql->query($Requete) or Gestionnaires_Erreurs_SQL($Requete);
