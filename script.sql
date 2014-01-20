@@ -62,11 +62,11 @@ CREATE TABLE Appartient(
 	CONSTRAINT fk_groupe1 FOREIGN KEY(idGroupe) REFERENCES Groupe(idGroupe)
 )engine=InnoDB;
 
-INSERT INTO Utilisateur values(null,"Leclerc","Thomas","tleclerc",PASSWORD("quenelle"));
+INSERT INTO Utilisateur values(null,"Leclerc","Thomas","tleclerc",sha1("quenelle"));
 INSERT INTO Utilisateur values(null,"Petracca","Charlélie","cpetracca",PASSWORD("quenelle"));
-INSERT INTO Utilisateur values(null,"Jean","user1","cpetracca",PASSWORD("quenelle"));
-INSERT INTO Utilisateur values(null,"Jean","user2","cpetracca",PASSWORD("quenelle"));
-INSERT INTO Utilisateur values(null,"Jean","user3","cpetracca",PASSWORD("quenelle"));
+INSERT INTO Utilisateur values(null,"Jean","user1","cpetracca",sha1("quenelle"));
+INSERT INTO Utilisateur values(null,"Jean","user2","cpetracca",sha1("quenelle"));
+INSERT INTO Utilisateur values(null,"Jean","user3","cpetracca",sha1("quenelle"));
 
 INSERT INTO Groupe values(null,"Groupe test");
 INSERT INTO Groupe values(null,"Groupe test 2");

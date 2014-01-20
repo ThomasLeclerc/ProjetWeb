@@ -7,7 +7,7 @@ if(isset($_POST['login'],$_POST['password']))
 	$requete=SQL("  SELECT * 
                         FROM UTILISATEUR
                         WHERE UTILISATEUR.loginUtilisateur='".$_POST['login']."'
-                        AND mdpUtilisateur='".hash("sha512",$_POST['password'])."'   ");
+                        AND password='".hash("sha1",$_POST['password'])."'   ");
 	
 	if($requete->num_rows == 1)
 	{
@@ -16,11 +16,11 @@ if(isset($_POST['login'],$_POST['password']))
 		$_SESSION['id']=$compte->idUtilisateur;
 		$_SESSION['nom']=$compte->nomUtilisateur." ".$compte->prenomUtilisateur;
                 
-		// Récupération des droits
-		$requete_droit=SQL("SELECT idDroit FROM Detient WHERE idUtilisateur='".$compte->idUtilisateur."'");
-		$_SESSION['droit']=array();
-		while($droit=$requete_droit->fetch_object()) {
-			$_SESSION['droit'][]=$droit->idDroit;
+		// Récupération des groupe liés à l'utilisateur
+		$requete_groupe=SQL("SELECT idGroupe FROM Appartient WHERE idUtilisateur='".$compte->idUtilisateur."'");
+		$_SESSION['groupes']=array();
+		while($groupes=$requete_groupe->fetch_object()) {
+			$_SESSION['groupes'][]=$groupe->idDroit;
 		}
 		
 		MessagesService::ajouter(MessagesService::OK, "Bienvenue ".$compte->prenomUtilisateur." ".$compte->nomUtilisateur);
