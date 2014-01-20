@@ -23,5 +23,5 @@
 				</div>
 			<?php } ?>
 		</div>
-		<?=MessagesService::afficher()?>
+		<?//=MessagesService::afficher()?>
 		
