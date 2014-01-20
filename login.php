@@ -17,10 +17,10 @@ if(isset($_POST['login'],$_POST['password']))
 		$_SESSION['nom']=$compte->nomUtilisateur." ".$compte->prenomUtilisateur;
                 
 		// Récupération des groupe liés à l'utilisateur
-		$requete_groupe=SQL("SELECT idGroupe FROM Appartient WHERE idUtilisateur='".$compte->idUtilisateur."'");
+		$requete_groupe=SQL("SELECT idGroupe FROM APPARTIENT WHERE idUtilisateur='".$compte->idUtilisateur."'");
 		$_SESSION['groupes']=array();
 		while($groupes=$requete_groupe->fetch_object()) {
-			$_SESSION['groupes'][]=$groupe->idDroit;
+			$_SESSION['groupes'][]=$groupe->idGroupe;
 		}
 		
 		MessagesService::ajouter(MessagesService::OK, "Bienvenue ".$compte->prenomUtilisateur." ".$compte->nomUtilisateur);

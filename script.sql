@@ -7,59 +7,59 @@ DROP TABLE if exists UTILISATEUR;
 
 
 CREATE TABLE UTILISATEUR(
-	idUTILISATEUR int not null auto_increment,
-	nomUTILISATEUR varchar(20),
-	prenomUTILISATEUR varchar(20),
-	loginUTILISATEUR char(30),
-	password varchar(15),
-	PRIMARY KEY(idUTILISATEUR)
+	idUtilisateur int not null auto_increment,
+	nomUtilisateur varchar(20),
+	prenomUtilisateur varchar(20),
+	loginUtilisateur char(30),
+	password varchar(40),
+	PRIMARY KEY(idUtilisateur)
 )engine=InnoDB;
 	
 CREATE TABLE GROUPE(
-	idGROUPE int not null auto_increment,
-	libelleGROUPE char(40),
-	PRIMARY KEY(idGROUPE)
+	idGroupe int not null auto_increment,
+	libelleGroupe char(40),
+	PRIMARY KEY(idGroupe)
 )engine=InnoDB;
 	
 CREATE TABLE EVENEMENT(
-	idEVENEMENT int not null auto_increment,
-	libelleEVENEMENT char(50),
+	idEvenement int not null auto_increment,
+	libelleEvenement char(50),
 	description char(200),
-	dateEVENEMENT date,
+	dateEvenement date,
 	heureDebut varchar(5),
 	heureFin varchar(5),
 	idCreateur int not null,
-	idGROUPE int not null,
-	PRIMARY KEY(idEVENEMENT),
-	CONSTRAINT fk_createur FOREIGN KEY(idCreateur) REFERENCES UTILISATEUR(idUTILISATEUR),
-	CONSTRAINT fk_GROUPE FOREIGN KEY(idGROUPE) REFERENCES GROUPE(idGROUPE)
+	idGroupe int not null,
+	PRIMARY KEY(idEvenement),
+	CONSTRAINT fk_createur FOREIGN KEY(idCreateur) REFERENCES UTILISATEUR(idUtilisateur),
+	CONSTRAINT fk_groupe FOREIGN KEY(idGroupe) REFERENCES GROUPE(idGroupe)
 )engine=InnoDB;
 
 CREATE TABLE NOTIFICATION(
-	idNOTIFICATION int not null auto_increment,
+	idNotification int not null auto_increment,
 	titre varchar(20),
 	contenu char(100),
 	expediteur varchar(20),
 	lu boolean,
-	idUTILISATEUR int not null,
-	PRIMARY KEY(idNOTIFICATION),
-	CONSTRAINT fk_UTILISATEUR FOREIGN KEY(idUTILISATEUR) REFERENCES UTILISATEUR(idUTILISATEUR)
+	idUtilisateur int not null,
+	PRIMARY KEY(idNotification),
+	CONSTRAINT fk_utilisateur FOREIGN KEY(idUtilisateur) REFERENCES UTILISATEUR(idUtilisateur)
 )engine=InnoDB;
 
 CREATE TABLE PARTICIPE(
-	idUTILISATEUR int not null,
-	idEVENEMENT int not null,
-	PRIMARY KEY(idUTILISATEUR,idEVENEMENT),
-	CONSTRAINT fk_UTILISATEUR2 FOREIGN KEY(idUTILISATEUR) REFERENCES UTILISATEUR(idUTILISATEUR),
-	CONSTRAINT fk_EVENEMENT FOREIGN KEY(idEVENEMENT) REFERENCES EVENEMENT(idEVENEMENT)
+	idUtilisateur int not null,
+	idEvenement int not null,
+	PRIMARY KEY(idUtilisateur,idEvenement),
+	CONSTRAINT fk_utilisateur2 FOREIGN KEY(idUtilisateur) REFERENCES UTILISATEUR(idUtilisateur),
+	CONSTRAINT fk_evenement FOREIGN KEY(idEvenement) REFERENCES EVENEMENT(idEvenement)
 )engine=InnoDB;
 
 CREATE TABLE APPARTIENT(
-	idUTILISATEUR int not null,
-	idGROUPE int not null,
-	PRIMARY KEY(idUTILISATEUR,idGROUPE),
-	CONSTRAINT fk_UTILISATEUR3 FOREIGN KEY(idUTILISATEUR) REFERENCES UTILISATEUR(idUTILISATEUR),
-	CONSTRAINT fk_GROUPE1 FOREIGN KEY(idGROUPE) REFERENCES GROUPE(idGROUPE)
+	idUtilisateur int not null,
+	idGroupe int not null,
+	PRIMARY KEY(idUtilisateur,idGroupe),
+	CONSTRAINT fk_utilisateur3 FOREIGN KEY(idUtilisateur) REFERENCES UTILISATEUR(idUtilisateur),
+	CONSTRAINT fk_groupe1 FOREIGN KEY(idGroupe) REFERENCES GROUPE(idGroupe)
 )engine=InnoDB;
 
 INSERT INTO UTILISATEUR values(null,"Leclerc","Thomas","tleclerc",sha1("quenelle"));
@@ -68,8 +68,8 @@ INSERT INTO UTILISATEUR values(null,"Jean","user1","cpetracca",sha1("quenelle"))
 INSERT INTO UTILISATEUR values(null,"Jean","user2","cpetracca",sha1("quenelle"));
 INSERT INTO UTILISATEUR values(null,"Jean","user3","cpetracca",sha1("quenelle"));
 
-INSERT INTO GROUPE values(null,"GROUPE test");
-INSERT INTO GROUPE values(null,"GROUPE test 2");
+INSERT INTO GROUPE values(null,"Groupe test");
+INSERT INTO GROUPE values(null,"Groupe test 2");
 
 INSERT INTO APPARTIENT values(1,1);
 INSERT INTO APPARTIENT values(2,1);
