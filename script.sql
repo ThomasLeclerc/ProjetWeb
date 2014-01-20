@@ -61,6 +61,27 @@ CREATE TABLE Appartient(
 	CONSTRAINT fk_utilisateur3 FOREIGN KEY(idUtilisateur) REFERENCES Utilisateur(idUtilisateur),
 	CONSTRAINT fk_groupe1 FOREIGN KEY(idGroupe) REFERENCES Groupe(idGroupe)
 )engine=InnoDB;
-	
 
+INSERT INTO Utilisateur values(null,"Leclerc","Thomas","tleclerc",PASSWORD("quenelle"));
+INSERT INTO Utilisateur values(null,"Petracca","Charlélie","cpetracca",PASSWORD("quenelle"));
+INSERT INTO Utilisateur values(null,"Jean","user1","cpetracca",PASSWORD("quenelle"));
+INSERT INTO Utilisateur values(null,"Jean","user2","cpetracca",PASSWORD("quenelle"));
+INSERT INTO Utilisateur values(null,"Jean","user3","cpetracca",PASSWORD("quenelle"));
+
+INSERT INTO Groupe values(null,"Groupe test");
+INSERT INTO Groupe values(null,"Groupe test 2");
+
+INSERT INTO Appartient values(1,1);
+INSERT INTO Appartient values(2,1);
+INSERT INTO Appartient values(3,2);
+INSERT INTO Appartient values(4,2);
+INSERT INTO Appartient values(5,2);	
+
+INSERT INTO Evenement values(null, "Conférence", "Rassemblement autour du thème dressage de poneys", "25-05-2014", "13:30:00", "16:00:00", 1, 1); 
+INSERT INTO Evenement values(null, "Spectacle", "spectacle de rue, avec cracheurs de feu et dompteurs d\'ours sauvages de malaisie", "10-10-2014", "18:00:00", "22:00:00", 3, 2); 
+
+INSERT INTO Participe values(1, 1);
+INSERT INTO Participe values(2, 1);
+INSERT INTO Participe values(4, 2);
+INSERT INTO Participe values(5, 2);
 	
