@@ -18,7 +18,7 @@
 			<h6>Emploi du temps de groupe</h6>
 			<?php if(isset($_SESSION['id'])) { ?>
 				<div class="droite">
-					<h3><?=$_SESSION['nom']?></h3><br/>
+					<h3><?=$_SESSION['nom']?></h3>
 					<a href="<?=SHORT_RACINE?>logout.php" title="Se déconnecter">Se deconnecter</a>
 				</div>
 			<?php } ?>
