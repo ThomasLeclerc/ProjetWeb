@@ -19,9 +19,9 @@
 			<?php if(isset($_SESSION['id'])) { ?>
 				<div class="droite">
 					<h3><?=$_SESSION['nom']?></h3><br/>
-					<a href="<?=SHORT_RACINE?>logout.php" title="Se déconnecter">Se déconnecter</a>
+					<a href="<?=SHORT_RACINE?>logout.php" title="Se déconnecter">Se deconnecter</a>
 				</div>
 			<?php } ?>
 		</div>
-		<?//=MessagesService::afficher()?>
+		<?MessagesService::afficher();?>
 		

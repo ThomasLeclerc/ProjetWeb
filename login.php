@@ -22,7 +22,7 @@ if(isset($_POST['login'],$_POST['password']))
 			$_SESSION['groupes'][]=$groupes->idGroupe;
 		}
 		
-		MessagesService::ajouter(MessagesService::OK, "Bienvenue ".$compte->prenomUtilisateur." ".$compte->nomUtilisateur);
+		//MessagesService::ajouter(MessagesService::OK, "Bienvenue ".$compte->prenomUtilisateur." ".$compte->nomUtilisateur);
 		REDIRECT('index.php');
 	}
 	else

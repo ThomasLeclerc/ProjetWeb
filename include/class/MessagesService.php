@@ -17,7 +17,7 @@ class MessagesService {
 			while(count($_SESSION['MessagesService']))
 			{
 				$message=array_shift($_SESSION['MessagesService']);
-				echo '<div class="msg_'.$message['type'].'">'.$message['message'].'</div>';
+				echo'<div class="msg_'.$message['type'].'">'.$message['message'].'</div>';
 			}
 		}
 	}
