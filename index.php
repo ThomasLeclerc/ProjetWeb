@@ -6,7 +6,8 @@ if(!isset($_SESSION['id']))
 HTML_HEADER('Accueil');
 ?>
 	<div id="content">
-		ici agenda
+		
+		<? require(RACINE.'agenda/selectable.html');?>
 	
 	</div>
 
