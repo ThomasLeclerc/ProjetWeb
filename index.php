@@ -7,8 +7,8 @@ HTML_HEADER('Accueil');
 ?>
 	<div id="content">
 		
-		<? require(RACINE.'agenda/selectable.html');?>
-	
+		<?php require('/var/www/ProjetWeb/agenda/selectable.php'); ?>
+			
 	</div>
 
 <?php 

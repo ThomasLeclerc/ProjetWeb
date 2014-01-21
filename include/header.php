@@ -9,6 +9,8 @@
 		<script src="<?=SHORT_RACINE?>scripts/engine.js" type="text/javascript"></script>
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		
 		
 	</head>
 	<body>
@@ -23,5 +25,5 @@
 				</div>
 			<?php } ?>
 		</div>
-		<?MessagesService::afficher();?>
+		<?//MessagesService::afficher();?>
 		

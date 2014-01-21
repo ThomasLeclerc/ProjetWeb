@@ -1,9 +1,7 @@
 
-<link href='../fullcalendar/fullcalendar.css' rel='stylesheet' />
-<link href='../fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
-<script src='../lib/jquery.min.js'></script>
-<script src='../lib/jquery-ui.custom.min.js'></script>
-<script src='../fullcalendar/fullcalendar.min.js'></script>
+<link href='<?=SHORT_RACINE?>/agenda/fullcalendar.css' rel='stylesheet' />
+<link href='<?=SHORT_RACINE?>/agenda/fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='<?=SHORT_RACINE?>/agenda/fullcalendar.js'></script>
 <script>
 
 	$(document).ready(function() {
@@ -38,6 +36,9 @@
 			},
 			editable: true,
 			events: [
+			<?php
+			
+			?>
 				{
 					title: 'All Day Event',
 					start: new Date(y, m, 1)
@@ -103,7 +104,6 @@
 		}
 
 </style>
-
 
 <div id='calendar'></div>
 
