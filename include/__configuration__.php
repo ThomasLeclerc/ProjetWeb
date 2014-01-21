@@ -1,5 +1,5 @@
 <?php 
-define('RACINE',$_SERVER["DOCUMENT_ROOT"].'/ProjetWeb/');
+define('RACINE',$_SERVER["DOCUMENT_ROOT"].'/git/ProjetWeb/');
 define('SHORT_RACINE','/ProjetWeb/');
 define('INCLUDE_DIR',RACINE.'include/');
 define('DEVELOPPEMENT',true);
