@@ -14,6 +14,7 @@
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		
 		<script src='<?=SHORT_RACINE?>/agenda/fullcalendar.js'></script>
+		<script src='<?=SHORT_RACINE?>/agenda/fullcalendar.min.js'></script>
 
 	</head>
 	<body>
