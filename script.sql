@@ -25,7 +25,8 @@ CREATE TABLE EVENEMENT(
 	idEvenement int not null auto_increment,
 	libelleEvenement char(50),
 	description char(200),
-	dateEvenement date,
+	dateDebut date,
+	dateFin date default null,
 	heureDebut varchar(5),
 	heureFin varchar(5),
 	idCreateur int not null,
@@ -77,8 +78,8 @@ INSERT INTO APPARTIENT values(3,2);
 INSERT INTO APPARTIENT values(4,2);
 INSERT INTO APPARTIENT values(5,2);	
 
-INSERT INTO EVENEMENT values(null, "Conférence", "Rassemblement autour du thème dressage de poneys", "25-05-2014", "13:30:00", "16:00:00", 1, 1); 
-INSERT INTO EVENEMENT values(null, "Spectacle", "spectacle de rue, avec cracheurs de feu et dompteurs d\'ours sauvages de malaisie", "10-10-2014", "18:00:00", "22:00:00", 3, 2); 
+INSERT INTO EVENEMENT values(null, "Conférence", "Rassemblement autour du thème dressage de poneys", "2014-05-25", null, "13:30:00", "16:00:00", 1, 1); 
+INSERT INTO EVENEMENT values(null, "Spectacle", "spectacle de rue, avec cracheurs de feu et dompteurs d\'ours sauvages de malaisie", "2014-10-10", null, "18:00:00", "22:00:00", 3, 2); 
 
 INSERT INTO PARTICIPE values(1, 1);
 INSERT INTO PARTICIPE values(2, 1);

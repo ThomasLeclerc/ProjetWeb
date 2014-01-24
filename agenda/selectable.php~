@@ -35,10 +35,17 @@
 				calendar.fullCalendar('unselect');
 			},
 			editable: true,
-			events: [
-			<?php
-			
-			?>
+			events: 
+				url: 'eventsJson.php',
+				type: 'POST',
+				data: {
+				    custom_param1: 'something',
+				    custom_param2: 'somethingelse'
+				},
+				error: function() {
+				    alert('there was an error while fetching events!');
+				}
+			/*[
 				{
 					title: 'All Day Event',
 					start: new Date(y, m, 1)
@@ -83,7 +90,7 @@
 					end: new Date(y, m, 29),
 					url: 'http://google.com/'
 				}
-			]
+			]*/
 		});
 		
 	});
