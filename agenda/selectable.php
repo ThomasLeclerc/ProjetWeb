@@ -12,7 +12,7 @@
 		var y = date.getFullYear();
 		
 		var calendar = $('#calendar').fullCalendar({
-/*			header: {
+			header: {
 				left: 'prev,next today',
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
@@ -35,7 +35,9 @@
 				calendar.fullCalendar('unselect');
 			},
 			editable: true,
-			events: 'eventsJson.php'*/
+			events: 'eventsJson.php'
+			
+			
 			/*[
 				{
 					title: 'All Day Event',

@@ -22,16 +22,15 @@ CREATE TABLE GROUPE(
 )engine=InnoDB;
 	
 CREATE TABLE EVENEMENT(
-	idEvenement int not null auto_increment,
-	libelleEvenement char(50),
+	id int(11) NOT NULL AUTO_INCREMENT,
+	title varchar(255) COLLATE utf8_bin NOT NULL,
+	start datetime NOT NULL,
+	end datetime DEFAULT NULL,
+	allDay varchar(255) COLLATE utf8_bin NOT NULL DEFAULT 'false',
 	description char(200),
-	dateDebut date,
-	dateFin date default null,
-	heureDebut varchar(5),
-	heureFin varchar(5),
 	idCreateur int not null,
 	idGroupe int not null,
-	PRIMARY KEY(idEvenement),
+	PRIMARY KEY(id),
 	CONSTRAINT fk_createur FOREIGN KEY(idCreateur) REFERENCES UTILISATEUR(idUtilisateur),
 	CONSTRAINT fk_groupe FOREIGN KEY(idGroupe) REFERENCES GROUPE(idGroupe)
 )engine=InnoDB;
@@ -52,7 +51,7 @@ CREATE TABLE PARTICIPE(
 	idEvenement int not null,
 	PRIMARY KEY(idUtilisateur,idEvenement),
 	CONSTRAINT fk_utilisateur2 FOREIGN KEY(idUtilisateur) REFERENCES UTILISATEUR(idUtilisateur),
-	CONSTRAINT fk_evenement FOREIGN KEY(idEvenement) REFERENCES EVENEMENT(idEvenement)
+	CONSTRAINT fk_evenement FOREIGN KEY(idEvenement) REFERENCES EVENEMENT(id)
 )engine=InnoDB;
 
 CREATE TABLE APPARTIENT(
@@ -78,8 +77,8 @@ INSERT INTO APPARTIENT values(3,2);
 INSERT INTO APPARTIENT values(4,2);
 INSERT INTO APPARTIENT values(5,2);	
 
-INSERT INTO EVENEMENT values(null, "Conférence", "Rassemblement autour du thème dressage de poneys", "2014-05-25", null, "13:30:00", "16:00:00", 1, 1); 
-INSERT INTO EVENEMENT values(null, "Spectacle", "spectacle de rue, avec cracheurs de feu et dompteurs d\'ours sauvages de malaisie", "2014-10-10", null, "18:00:00", "22:00:00", 3, 2); 
+INSERT INTO EVENEMENT values(null, "Conférence", "2014-05-25", "2014-05-25", "","Rassemblement autour du thème dressage de poneys", 1, 1); 
+INSERT INTO EVENEMENT values(null, "Spectacle","2014-10-10", "2014-10-10", "","spectacle de rue, avec cracheurs de feu et dompteurs d\'ours sauvages de malaisie", 3, 2); 
 
 INSERT INTO PARTICIPE values(1, 1);
 INSERT INTO PARTICIPE values(2, 1);
