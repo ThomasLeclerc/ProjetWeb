@@ -19,8 +19,8 @@
 		array(
 			'id' => 222,
 			'title' => "Event2",
-			'start' => "$year-$month-20",
-			'end' => "$year-$month-22",
+			'start' => "2014-01-20",
+			'end' => "2014-01-22",
 			'url' => "http://yahoo.com/"
 		)
 	
