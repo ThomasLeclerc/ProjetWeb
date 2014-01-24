@@ -7,15 +7,12 @@
 		<link rel="stylesheet" type="text/css" href="<?=SHORT_RACINE?>styles/style.css" />
 		<!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />-->
 		<script src="<?=SHORT_RACINE?>scripts/engine.js" type="text/javascript"></script>
+		<script src="<?=SHORT_RACINE?>agenda/fullcalendar.js" type="text/javascript"></script>
+		
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
-<<<<<<< HEAD
-
-=======
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		
-		
->>>>>>> e3c5b97fdd945ec0e28713e956897ac8030429e8
+
 	</head>
 	<body>
 		<div id="header">
