@@ -13,15 +13,24 @@ HTML_HEADER('Page perso');
 		{
 			$('#calendar').fullCalendar({
 				// put your options and callbacks here
+				editable: true,
+				
 				eventSources: [
 
 					// your event source
 					{
-						url: '/events.php', // use the `url` property
+						url: './events.php', // use the `url` property
 						color: 'yellow',    // an option!
 						textColor: 'black'  // an option!
 					}
-				]
+				],
+				
+
+				loading: function(bool) {
+				if (bool) $('#loading').show();
+				else $('#loading').hide();
+				}
+				
 			})
 		}
 	);
@@ -39,6 +48,12 @@ HTML_HEADER('Page perso');
 	#calendar {
 		width: 900px;
 		margin: 0 auto;
+		}
+		
+			#loading {
+		position: absolute;
+		top: 5px;
+		right: 5px;
 		}
 
 	</style>
