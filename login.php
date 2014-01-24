@@ -24,7 +24,7 @@ if(isset($_POST['login'],$_POST['password']))
 		}
 		
 		//MessagesService::ajouter(MessagesService::OK, "Bienvenue ".$compte->prenomUtilisateur." ".$compte->nomUtilisateur);
-		REDIRECT('index.php');
+		REDIRECT('user.php');
 	}
 	else
 		MessagesService::ajouter(MessagesService::ERREUR, "Les identifiants et le mot de passe ne se correspondent pas");
