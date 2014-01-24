@@ -1,5 +1,6 @@
 <?php
 require_once 'include/engine.php';
+HTML_HEADER('Connexion');
 
 // Vérification de la connexion
 if(isset($_POST['login'],$_POST['password']))
@@ -29,7 +30,6 @@ if(isset($_POST['login'],$_POST['password']))
 		MessagesService::ajouter(MessagesService::ERREUR, "Les identifiants et le mot de passe ne se correspondent pas");
 }
 
-HTML_HEADER('Connexion');
 ?>
 
 <form action="" method="POST">
