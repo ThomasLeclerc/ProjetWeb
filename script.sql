@@ -64,10 +64,10 @@ CREATE TABLE APPARTIENT(
 )engine=InnoDB;
 
 INSERT INTO UTILISATEUR values(null,"Leclerc","Thomas","tleclerc",sha1("quenelle"));
-INSERT INTO UTILISATEUR values(null,"Petracca","Charlélie","cpetracca",PASSWORD("quenelle"));
-INSERT INTO UTILISATEUR values(null,"Jean","user1","cpetracca",sha1("quenelle"));
-INSERT INTO UTILISATEUR values(null,"Jean","user2","cpetracca",sha1("quenelle"));
-INSERT INTO UTILISATEUR values(null,"Jean","user3","cpetracca",sha1("quenelle"));
+INSERT INTO UTILISATEUR values(null,"Petracca","Charlélie","cpetracc",sha1("quenelle"));
+INSERT INTO UTILISATEUR values(null,"Jean","user1","user1",sha1("quenelle"));
+INSERT INTO UTILISATEUR values(null,"Jean","user2","user2",sha1("quenelle"));
+INSERT INTO UTILISATEUR values(null,"Jean","user3","user3",sha1("quenelle"));
 
 INSERT INTO GROUPE values(null,"Groupe test");
 INSERT INTO GROUPE values(null,"Groupe test 2");
