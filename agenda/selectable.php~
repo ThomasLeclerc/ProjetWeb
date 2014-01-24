@@ -36,6 +36,15 @@
 			},
 			editable: true,
 			events: 
+				url: 'eventsJson.php',
+				type: 'POST',
+				data: {
+				    custom_param1: 'something',
+				    custom_param2: 'somethingelse'
+				},
+				error: function() {
+				    alert('there was an error while fetching events!');
+				}
 			/*[
 				{
 					title: 'All Day Event',
