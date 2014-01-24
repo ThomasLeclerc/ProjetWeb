@@ -35,7 +35,7 @@
 				calendar.fullCalendar('unselect');
 			},
 			editable: true,
-			events: 'eventsJson.php'
+			events: 'agenda/eventsJson.php'
 			
 			
 			/*[

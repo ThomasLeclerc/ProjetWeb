@@ -26,7 +26,7 @@ CREATE TABLE EVENEMENT(
 	title varchar(255) COLLATE utf8_bin NOT NULL,
 	start datetime NOT NULL,
 	end datetime DEFAULT NULL,
-	allDay varchar(255) COLLATE utf8_bin NOT NULL DEFAULT 'false',
+	allDay boolean NOT NULL DEFAULT false,
 	description char(200),
 	idCreateur int not null,
 	idGroupe int not null,
@@ -77,8 +77,8 @@ INSERT INTO APPARTIENT values(3,2);
 INSERT INTO APPARTIENT values(4,2);
 INSERT INTO APPARTIENT values(5,2);	
 
-INSERT INTO EVENEMENT values(null, "Conférence", "2014-05-25", "2014-05-25", "","Rassemblement autour du thème dressage de poneys", 1, 1); 
-INSERT INTO EVENEMENT values(null, "Spectacle","2014-10-10", "2014-10-10", "","spectacle de rue, avec cracheurs de feu et dompteurs d\'ours sauvages de malaisie", 3, 2); 
+INSERT INTO EVENEMENT values(null, "Conférence", "2014-01-25", "2014-02-25", false,"Rassemblement autour du thème dressage de poneys", 1, 1); 
+INSERT INTO EVENEMENT values(null, "Spectacle","2014-10-10", "2014-10-10", true,"spectacle de rue, avec cracheurs de feu et dompteurs d\'ours sauvages de malaisie", 3, 2); 
 
 INSERT INTO PARTICIPE values(1, 1);
 INSERT INTO PARTICIPE values(2, 1);
