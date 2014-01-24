@@ -1,6 +1,6 @@
 <?php 
-define('RACINE',$_SERVER["DOCUMENT_ROOT"].'/ProjetWeb/');
-define('SHORT_RACINE','/ProjetWeb/');
+define('RACINE',$_SERVER["DOCUMENT_ROOT"].'/git/ProjetWeb/');
+define('SHORT_RACINE','/git/ProjetWeb/');
 define('INCLUDE_DIR',RACINE.'include/');
 define('DEVELOPPEMENT',true);
 define('SQL_AFFICHER_REQUETES',true); // Si DEVELOPPEMENT == true
