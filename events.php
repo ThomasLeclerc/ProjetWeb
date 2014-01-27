@@ -8,11 +8,12 @@
 					where a.idUtilisateur=".$_SESSION['id']."
 					and e.idGroupe=a.idGroupe" );
 
+
 	$events = array();
 	
 	while($row=$query->fetch_object()){
 	
-		array_push($events,array('id'=> $row->id , 'title'=>$row->title, 'start' => $row->start, 'end' => $row->end));
+		array_push($events,array('id'=> $row->id , 'title'=>$row->title, 'start' => $row->start, 'end' => $row->end, 'borderColor' => "red"));
 		
 	}
 
