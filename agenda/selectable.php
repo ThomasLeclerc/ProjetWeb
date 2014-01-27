@@ -38,7 +38,7 @@
 			events: 'agenda/eventsJson.php'
 			
 			
-			/*[
+			/*zz[
 				{
 					title: 'All Day Event',
 					start: new Date(y, m, 1)
