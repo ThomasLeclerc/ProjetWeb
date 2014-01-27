@@ -1,29 +1,28 @@
 <?php
 
 	require_once 'include/engine.php';
-
-	
+/*
+	$query=SQL("	select * 
+					from EVENEMENT e, APPARTIENT a, UTILISATEUR u, GROUPE g
+					where u.loginUtilisateur='cpetracc' 
+					and a.idUtilisateur=u.idUtilisateur
+					and e.idGroupe=a.idGroupe");
+*/
+	$query=SQL("select * from EVENEMENT");
 
 	$year = date('Y');
 	$month = date('m');
 
-	echo json_encode(array(
+	$events = array();
 	
-		array(
-			'id' => 111,
-			'title' => "Event1",
-			'start' => "$year-$month-10",
-			'url' => "http://yahoo.com/"
-		),
-		
-		array(
-			'id' => 222,
-			'title' => "Event2",
-			'start' => "2014-01-20",
-			'end' => "2014-01-22",
-			'url' => "http://yahoo.com/"
-		)
+	$row=$query->fetch_object();
 	
-	));
+	array_push($events,array('id'=> 1, 'title'=>$row->title, 'start' => "$year-$month-07"));
+	
+	$row=$query->fetch_object();
+	
+	array_push($events,array('id'=> 2, 'title'=>$row->title, 'start' => "2014-01-08"));
 
+	echo json_encode($events);
+	
 ?>
