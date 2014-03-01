@@ -23,11 +23,10 @@ if(isset($_POST['login'],$_POST['password']))
 			$_SESSION['groupes'][]=$groupes->idGroupe;
 		}
 		
-		//MessagesService::ajouter(MessagesService::OK, "Bienvenue ".$compte->prenomUtilisateur." ".$compte->nomUtilisateur);
 		REDIRECT('user.php');
 	}
 	else
-		MessagesService::ajouter(MessagesService::ERREUR, "Les identifiants et le mot de passe ne se correspondent pas");
+		echo "<div class='msg_1'> Les identifiants et le mot de passe ne se correspondent pas</div>";
 }
 
 ?>

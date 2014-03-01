@@ -10,54 +10,53 @@ HTML_HEADER('Page perso');
 
 	<script type="text/javascript">
 	$(document).ready(function()
-		{
-			$('#calendar').fullCalendar({
-				// put your options and callbacks here
-				editable: true,
+	{
+		$('#calendar').fullCalendar({
+			selectable: true,
+			selectHelper: true,
+			select: function(start, end, allDay) {
+				var title = prompt('Titre de l\'evenement : ');
+				if(title){
+					var description = prompt('Description de l\'evenement : ');
 				
-				eventSources: [
+					//formatage des dates avant envoie
+					start = $.fullCalendar.formatDate( start, 'yyyy-MM-dd');
+					end = $.fullCalendar.formatDate( end, 'yyyy-MM-dd');
+					
+					$.post(	'insertEvent.php', { title: title, start: start, end: end, allDay: allDay, description:description});
+					
 
-					// your event source
-					{
-						url: './events.php', // use the `url` property
-						color: 'yellow',    // an option!
-						textColor: 'black'  // an option!
-					}
-				],
-				
-
-				loading: function(bool) {
+					calendar.fullCalendar('renderEvent',
+						{
+							title: title,
+							start: start,
+							end: end,
+							allDay: allDay
+						}
+					);
+					
+					calendar.fullCalendar('unselect');
+				}
+			},
+			editable: true,
+			eventSources: [
+				// events source (ajax)
+				{
+					url: './events.php', // use the `url` property
+					color: 'red',    // an option!
+					textColor: 'black'  // an option!
+				}
+			],
+			loading: function(bool) {
 				if (bool) $('#loading').show();
 				else $('#loading').hide();
-				}
-				
-			})
-		}
-	);
+			}	
+		})
+	});
 
 	</script>
-	<style>
 
-	body {
-		margin-top: 40px;
-		text-align: center;
-		font-size: 14px;
-		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-		}
-
-	#calendar {
-		width: 900px;
-		margin: 0 auto;
-		}
-		
-			#loading {
-		position: absolute;
-		top: 5px;
-		right: 5px;
-		}
-
-	</style>
-		<div id='calendar'></div>
+	<div id='calendar'></div>
 
 <?php 
 HTML_FOOTER();

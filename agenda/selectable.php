@@ -1,7 +1,5 @@
 
-<link href='<?=SHORT_RACINE?>/agenda/fullcalendar.css' rel='stylesheet' />
-<link href='<?=SHORT_RACINE?>/agenda/fullcalendar.print.css' rel='stylesheet' media='print' />
-<script src='<?=SHORT_RACINE?>/agenda/fullcalendar.js'></script>
+
 <script>
 
 	$(document).ready(function() {
@@ -38,7 +36,7 @@
 			events: 'agenda/eventsJson.php'
 			
 			
-			/*zz[
+			/*[
 				{
 					title: 'All Day Event',
 					start: new Date(y, m, 1)

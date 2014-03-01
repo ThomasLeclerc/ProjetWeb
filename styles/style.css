@@ -1,33 +1,29 @@
-body{
-	margin:0;
-	padding:0;
-}
+
 
 #header{
 	text-align:center;
 }
 
+body {
+	margin-top: 40px;
+	text-align: center;
+	font-size: 14px;
+	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+}
 
-
-
-
-
-
-
-
-
-
-
-----------------------------------------------------------
-FULL CALENDAR
-----------------------------------------------------------
-
-/*!
- * FullCalendar v1.6.4 Stylesheet
- * Docs & License: http://arshaw.com/fullcalendar/
- * (c) 2013 Adam Shaw
- */
-
+#calendar {
+	width: 700px;
+	margin: 0 auto;
+}
+	
+#loading {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+/*----------------------------------------------------------
+STYLE CALENDAR
+----------------------------------------------------------*/
 
 .fc {
 	direction: ltr;
