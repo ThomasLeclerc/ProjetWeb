@@ -13,7 +13,7 @@
 	
 	while($row=$query->fetch_object()){
 	
-		array_push($events,array('id'=> $row->id , 'title'=>$row->title, 'start' => $row->start, 'end' => $row->end, 'borderColor' => "red"));
+		array_push($events,array('id'=> $row->id , 'title'=>$row->title, 'start' => $row->start, 'end' => $row->end, 'borderColor' => "blue", 'description' => $row->description));
 		
 	}
 

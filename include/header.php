@@ -5,20 +5,21 @@
 		<meta name="description" content=""/>
 		<title><?=$titre?> - Dynamic Web Project - </title>
 		<link rel="stylesheet" type="text/css" href="<?=SHORT_RACINE?>styles/style.css" />
-		
+		<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.css" />
 		<!--<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />-->
 		<script src="<?=SHORT_RACINE?>/scripts/engine.js" type="text/javascript"></script>
 		
 		<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
-		<!--<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>-->
+		<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="http://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.js"></script>
 		
 		<script src='<?=SHORT_RACINE?>/agenda/fullcalendar.js'></script>
 
 	</head>
 	<body>
 		<div id="header">
-			<a href="<?=SHORT_RACINE?>index.php"><input type="button" value="Accueil" class="accueil" /></a>
+			<a href="<?=SHORT_RACINE?>user.php"><input type="button" value="Accueil" class="accueil" /></a>
 			<h1><?=$titre?></h1>
 			<h6>Emploi du temps de groupe</h6>
 			<?php if(isset($_SESSION['id'])) { ?>

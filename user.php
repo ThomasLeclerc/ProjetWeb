@@ -14,6 +14,7 @@ HTML_HEADER('Page perso');
 		$('#calendar').fullCalendar({
 			selectable: true,
 			selectHelper: true,
+			//ajout d'un événement
 			select: function(start, end, allDay) {
 				var title = prompt('Titre de l\'evenement : ');
 				if(title){
@@ -24,29 +25,38 @@ HTML_HEADER('Page perso');
 					end = $.fullCalendar.formatDate( end, 'yyyy-MM-dd');
 					
 					$.post(	'insertEvent.php', { title: title, start: start, end: end, allDay: allDay, description:description});
-					
-
-					calendar.fullCalendar('renderEvent',
-						{
-							title: title,
-							start: start,
-							end: end,
-							allDay: allDay
-						}
-					);
-					
-					calendar.fullCalendar('unselect');
+					location.reload();
 				}
 			},
 			editable: true,
+			//modification d'un événement
+			eventDrop: function(event) {
+				if (confirm("Etes vous sur de vouloir deplacer cet evenement ?")) {
+					start = $.fullCalendar.formatDate( event.start, 'yyyy-MM-dd');
+					end = $.fullCalendar.formatDate( event.end, 'yyyy-MM-dd');
+					
+					$.post(	'updateEvent.php', { action: 'move', id: event.id, start: start, end: end});
+				}
+
+			},
+			//suppresion d'un événément
+			eventClick: function(event){
+				if(confirm("Supprimer cet evenement ?")){
+					$.post(	'updateEvent.php', { action: 'delete', id: event.id});
+					location.reload();
+				}
+			},
+			//récupération des événéments
 			eventSources: [
-				// events source (ajax)
 				{
-					url: './events.php', // use the `url` property
-					color: 'red',    // an option!
-					textColor: 'black'  // an option!
+					url: './events.php'
 				}
 			],
+			eventRender: function(event, element) {
+				element.qtip({
+					content: event.description
+				});
+			},
 			loading: function(bool) {
 				if (bool) $('#loading').show();
 				else $('#loading').hide();
