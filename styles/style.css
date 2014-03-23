@@ -21,6 +21,36 @@ body {
 	top: 5px;
 	right: 5px;
 }
+
+/*----------------------------------------------------------
+STYLE PAGE user.php
+----------------------------------------------------------*/
+#divListeGroupes{
+	width:300px;
+	float:left;
+	text-align:left;
+}
+#listeGroupes {
+	list-style:none;
+	padding:0;
+}
+.itemListeGroupes{
+	padding:5px 20px;
+	margin:5px;
+	background-color:#6EA3CB;
+	color:#282828;
+	border-radius:4px;
+}
+.itemListeGroupes:hover{
+	background-color:#9CC8EA;
+	color:#282828;
+	cursor:pointer;
+}
+.selected{
+	background-color:#89CEA2;
+}
+
+
 /*----------------------------------------------------------
 STYLE CALENDAR
 ----------------------------------------------------------*/

@@ -1,5 +1,4 @@
 <?php
-define('NO_SQL',1);
 require_once 'include/engine.php';
 // Si non connecté
 if(!isset($_SESSION['id'])) 
@@ -9,8 +8,15 @@ HTML_HEADER('Page perso');
 
 
 	<script type="text/javascript">
-	$(document).ready(function()
-	{
+	function selectGroupe(idGroupe, obj){
+		$("calendar").html("");
+		$(".itemListeGroupes").removeClass("selected");
+		$(obj).addClass("selected");
+		calendar(idGroupe);
+	}
+
+
+	function calendar(idGroupe){		
 		$('#calendar').fullCalendar({
 			selectable: true,
 			selectHelper: true,
@@ -24,7 +30,7 @@ HTML_HEADER('Page perso');
 					start = $.fullCalendar.formatDate( start, 'yyyy-MM-dd');
 					end = $.fullCalendar.formatDate( end, 'yyyy-MM-dd');
 					
-					$.post(	'insertEvent.php', { title: title, start: start, end: end, allDay: allDay, description:description});
+					$.post(	'insertEvent.php', { title: title, start: start, end: end, allDay: allDay, description:description, groupe: idGroupe});
 					location.reload();
 				}
 			},
@@ -35,7 +41,7 @@ HTML_HEADER('Page perso');
 					start = $.fullCalendar.formatDate( event.start, 'yyyy-MM-dd');
 					end = $.fullCalendar.formatDate( event.end, 'yyyy-MM-dd');
 					
-					$.post(	'updateEvent.php', { action: 'move', id: event.id, start: start, end: end});
+					$.post(	'updateEvent.php', { action: 'move', id: event.id, start: start, end: end, groupe: idGroupe});
 				}
 
 			},
@@ -49,7 +55,7 @@ HTML_HEADER('Page perso');
 			//récupération des événéments
 			eventSources: [
 				{
-					url: './events.php'
+					url: './events.php?groupe='+idGroupe
 				}
 			],
 			eventRender: function(event, element) {
@@ -61,12 +67,28 @@ HTML_HEADER('Page perso');
 				if (bool) $('#loading').show();
 				else $('#loading').hide();
 			}	
-		})
-	});
+		});
+	}// fin calendar(idGroupe)
+	
+	
 
 	</script>
 
-	<div id='calendar'></div>
+	<div id="divListeGroupes">
+		<ul id="listeGroupes">
+		<?php
+			$resultGroupes = SQL("SELECT g.libelleGroupe, g.idGroupe FROM GROUPE g, APPARTIENT a WHERE a.idUtilisateur='".$_SESSION['id']."' AND g.idGroupe=a.idGroupe");
+			while($groupes = $resultGroupes->fetch_object())
+			{
+				echo '<li class="itemListeGroupes" onClick="selectGroupe('.$groupes->idGroupe.', this)" >'.$groupes->libelleGroupe.'</li>';
+			}
+		
+		?>
+		</ul>
+	</div>
+	
+
+	<div id='calendar'><h1>Bienvenue dans l'application de gestion d'emploi du temps de groupes</h1></div>
 
 <?php 
 HTML_FOOTER();
